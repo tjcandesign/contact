@@ -31,11 +31,7 @@ export default function Home() {
     "Thursday, May 8th - 10:00 AM",
     "Thursday, May 8th - 2:00 PM",
     "Thursday, May 8th - 4:00 PM",
-    "Thursday, May 8th - 6:00 PM",
-    "Friday, May 9th - 10:00 AM",
-    "Friday, May 9th - 2:00 PM",
-    "Friday, May 9th - 4:00 PM",
-    "Friday, May 9th - 6:00 PM"
+    "Thursday, May 8th - 6:00 PM"
   ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
