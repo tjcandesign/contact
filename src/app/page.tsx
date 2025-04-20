@@ -81,10 +81,7 @@ export default function Home() {
               <input type="radio" name="interest" value="Schedule Consultation" className="mr-2" />
               Schedule Consultation
             </label>
-            <label className="inline-flex items-center">
-              <input type="radio" name="interest" value="General Inquiry" className="mr-2" />
-              General Inquiry
-            </label>
+
           </div>
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded font-bold mt-4 hover:bg-blue-700" disabled={loading}>
