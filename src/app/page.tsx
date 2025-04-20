@@ -114,16 +114,21 @@ export default function Home() {
             <div className="mt-4">
               <div className="font-semibold mb-2 text-blue-900">Select an appointment time:</div>
               <div className="flex flex-col gap-2">
-                {appointmentOptions.map((time) => (
-                  <button
-                    type="button"
-                    key={time}
-                    className={`w-full px-4 py-3 rounded-lg border-2 text-left font-medium transition-all duration-150 ${appointmentTime === time ? "bg-blue-600 text-white border-blue-700" : "bg-white/80 border-blue-300 hover:bg-blue-100"}`}
-                    onClick={() => setAppointmentTime(time)}
-                  >
-                    {time}
-                  </button>
-                ))}
+                {appointmentOptions.map((time, idx) => {
+                  const unavailable = idx < 4; // First four appointments (Mon/Tue)
+                  return (
+                    <button
+                      type="button"
+                      key={time}
+                      className={`w-full px-4 py-3 rounded-lg border-2 text-left font-medium transition-all duration-150 mb-1
+                        ${unavailable ? "line-through bg-gray-200 text-gray-500 border-gray-300 cursor-not-allowed" : appointmentTime === time ? "bg-blue-600 text-white border-blue-700" : "bg-white/80 border-blue-300 hover:bg-blue-100"}`}
+                      onClick={() => !unavailable && setAppointmentTime(time)}
+                      disabled={unavailable}
+                    >
+                      {time}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}
