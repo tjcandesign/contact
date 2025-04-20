@@ -22,8 +22,7 @@ export default function Home() {
       name: (form.elements.namedItem("name") as HTMLInputElement)?.value,
       email: (form.elements.namedItem("email") as HTMLInputElement)?.value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value,
-
-      agent: selectedAgent ?? ""
+      interest: (form.elements.namedItem("interest") as RadioNodeList)?.value || ""
     };
     try {
       await fetch("/api/contacts", {
@@ -68,23 +67,26 @@ export default function Home() {
         </label>
 
         <div className="my-4">
-          <div className="font-semibold mb-1">Who did you talk to? (optional)</div>
-          <div className="flex gap-4">
-            {agents.map(agent => (
-              <button
-                type="button"
-                key={agent.id}
-                className={`flex flex-col items-center border rounded p-2 hover:bg-blue-100 focus:outline-none ${selectedAgent === agent.id ? "ring-2 ring-blue-500" : ""}`}
-                onClick={() => setSelectedAgent(agent.id)}
-                aria-pressed={selectedAgent === agent.id}
-              >
-                <img src={agent.photo} alt={agent.name} className="w-16 h-16 object-cover rounded-full mb-1" />
-                <span>{agent.name}</span>
-              </button>
-            ))}
+          <div className="font-semibold mb-1">What are you looking for?</div>
+          <div className="flex flex-col gap-2">
+            <label className="inline-flex items-center">
+              <input type="radio" name="interest" value="Request Service" className="mr-2" />
+              Request Service
+            </label>
+            <label className="inline-flex items-center">
+              <input type="radio" name="interest" value="Request Quote" className="mr-2" />
+              Request Quote
+            </label>
+            <label className="inline-flex items-center">
+              <input type="radio" name="interest" value="Schedule Consultation" className="mr-2" />
+              Schedule Consultation
+            </label>
+            <label className="inline-flex items-center">
+              <input type="radio" name="interest" value="General Inquiry" className="mr-2" />
+              General Inquiry
+            </label>
           </div>
         </div>
-        <input type="hidden" name="agent" value={selectedAgent ?? ""} />
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded font-bold mt-4 hover:bg-blue-700" disabled={loading}>
           {loading ? "Submitting..." : "Submit"}
         </button>
