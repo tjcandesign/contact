@@ -50,8 +50,9 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen">
-      <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2" style={{ maxWidth: 180 }} />
-      <h2 className="text-2xl font-bold mb-4">Contact Capture</h2>
+      <div className="w-full max-w-md flex flex-col items-center">
+        <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2 w-full" style={{ maxWidth: '100%' }} />
+      </div>
       <form className="w-full max-w-md bg-white p-6 rounded shadow" onSubmit={handleSubmit}>
         <label className="block mb-2 font-semibold">Name
           <input name="name" className="w-full border p-2 rounded mt-1" />
