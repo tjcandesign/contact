@@ -22,7 +22,7 @@ export default function Home() {
       name: (form.elements.namedItem("name") as HTMLInputElement)?.value,
       email: (form.elements.namedItem("email") as HTMLInputElement)?.value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value,
-      notes: (form.elements.namedItem("notes") as HTMLInputElement)?.value,
+
       agent: selectedAgent ?? ""
     };
     try {
@@ -68,9 +68,7 @@ export default function Home() {
         <label className="block mb-2 font-semibold">Phone
           <input name="phone" className="w-full border p-2 rounded mt-1" />
         </label>
-        <label className="block mb-2 font-semibold">Notes
-          <textarea name="notes" className="w-full border p-2 rounded mt-1" />
-        </label>
+
         <div className="my-4">
           <div className="font-semibold mb-1">Who did you talk to? (optional)</div>
           <div className="flex gap-4">
