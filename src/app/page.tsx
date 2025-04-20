@@ -68,20 +68,29 @@ export default function Home() {
 
         <div className="my-4">
           <div className="font-semibold mb-1">What are you looking for?</div>
-          <div className="flex flex-col gap-2">
-            <label className="inline-flex items-center">
-              <input type="radio" name="interest" value="Request Service" className="mr-2" />
-              Request Service
-            </label>
-            <label className="inline-flex items-center">
-              <input type="radio" name="interest" value="Request Quote" className="mr-2" />
-              Request Quote
-            </label>
-            <label className="inline-flex items-center">
-              <input type="radio" name="interest" value="Schedule Consultation" className="mr-2" />
-              Schedule Consultation
-            </label>
-
+          <div className="flex flex-col sm:flex-row gap-4 mt-2">
+            {[
+              { value: "Request Service", label: "Request Service", icon: "🛠️" },
+              { value: "Request Quote", label: "Request Quote", icon: "💸" },
+              { value: "Schedule Consultation", label: "Schedule Consultation", icon: "⛵" }
+            ].map(option => (
+              <label
+                key={option.value}
+                className={`flex-1 cursor-pointer relative group`}
+              >
+                <input
+                  type="radio"
+                  name="interest"
+                  value={option.value}
+                  className="peer sr-only"
+                  required
+                />
+                <div className="flex flex-col items-center justify-center border-2 border-blue-300 bg-white/80 rounded-xl shadow-md px-4 py-6 transition-all duration-200 group-hover:bg-blue-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-700 group-hover:shadow-lg">
+                  <span className="text-3xl mb-2">{option.icon}</span>
+                  <span className="font-semibold text-lg text-center">{option.label}</span>
+                </div>
+              </label>
+            ))}
           </div>
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded font-bold mt-4 hover:bg-blue-700" disabled={loading}>
