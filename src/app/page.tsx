@@ -85,8 +85,8 @@ export default function Home() {
                   className="peer sr-only"
                   required
                 />
-                <div className="w-full flex flex-col items-center justify-center border-2 border-blue-300 bg-white/80 rounded-xl shadow-md px-4 py-6 transition-all duration-200 group-hover:bg-blue-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-700 group-hover:shadow-lg">
-                  <span className="text-3xl mb-2">{option.icon}</span>
+                <div className="w-full flex flex-row items-center justify-center border-2 border-blue-300 bg-white/80 rounded-xl shadow-md px-4 py-6 transition-all duration-200 group-hover:bg-blue-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-700 group-hover:shadow-lg">
+                  <span className="text-3xl mr-4">{option.icon}</span>
                   <span className="font-semibold text-lg text-center">{option.label}</span>
                 </div>
               </label>
