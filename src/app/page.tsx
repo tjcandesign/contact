@@ -114,8 +114,13 @@ export default function Home() {
             <div className="mt-4">
               <div className="font-semibold mb-2 text-blue-900">Select an appointment time:</div>
               <div className="flex flex-col gap-2">
-                {appointmentOptions.map((time, idx) => {
-                  const unavailable = idx < 4; // First four appointments (Mon/Tue)
+                {appointmentOptions.map((time) => {
+                  const unavailableSlots = [
+                    "Monday, May 5th - 6:00 PM",
+                    "Wednesday, May 7th - 10:00 AM",
+                    "Thursday, May 8th - 6:00 PM"
+                  ];
+                  const unavailable = unavailableSlots.includes(time);
                   return (
                     <button
                       type="button"
