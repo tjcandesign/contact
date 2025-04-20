@@ -19,19 +19,15 @@ export default function Home() {
     "Monday, May 5th - 10:00 AM",
     "Monday, May 5th - 2:00 PM",
     "Monday, May 5th - 4:00 PM",
-    "Monday, May 5th - 6:00 PM",
     "Tuesday, May 6th - 10:00 AM",
     "Tuesday, May 6th - 2:00 PM",
     "Tuesday, May 6th - 4:00 PM",
-    "Tuesday, May 6th - 6:00 PM",
     "Wednesday, May 7th - 10:00 AM",
     "Wednesday, May 7th - 2:00 PM",
     "Wednesday, May 7th - 4:00 PM",
-    "Wednesday, May 7th - 6:00 PM",
     "Thursday, May 8th - 10:00 AM",
     "Thursday, May 8th - 2:00 PM",
-    "Thursday, May 8th - 4:00 PM",
-    "Thursday, May 8th - 6:00 PM"
+    "Thursday, May 8th - 4:00 PM"
   ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -122,9 +118,7 @@ export default function Home() {
               <div className="flex flex-col gap-2">
                 {appointmentOptions.map((time) => {
                   const unavailableSlots = [
-                    "Monday, May 5th - 6:00 PM",
-                    "Wednesday, May 7th - 10:00 AM",
-                    "Thursday, May 8th - 6:00 PM"
+                    "Wednesday, May 7th - 10:00 AM"
                   ];
                   const unavailable = unavailableSlots.includes(time);
                   return (
