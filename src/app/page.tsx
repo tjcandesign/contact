@@ -12,6 +12,17 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [interest, setInterest] = useState<string>("");
+  const [appointmentTime, setAppointmentTime] = useState<string>("");
+
+  const appointmentOptions = [
+    "Friday 3:00 PM",
+    "Friday 5:00 PM",
+    "Saturday 10:00 AM",
+    "Saturday 2:00 PM",
+    "Sunday 11:00 AM",
+    "Sunday 1:00 PM"
+  ];
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -22,7 +33,8 @@ export default function Home() {
       name: (form.elements.namedItem("name") as HTMLInputElement)?.value,
       email: (form.elements.namedItem("email") as HTMLInputElement)?.value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement)?.value,
-      interest: (form.elements.namedItem("interest") as RadioNodeList)?.value || ""
+      interest,
+      appointmentTime: interest === "Schedule Consultation" ? appointmentTime : ""
     };
     try {
       await fetch("/api/contacts", {
@@ -83,6 +95,8 @@ export default function Home() {
                   name="interest"
                   value={option.value}
                   className="peer sr-only"
+                  checked={interest === option.value}
+                  onChange={() => setInterest(option.value)}
                   required
                 />
                 <div className="w-full flex flex-row items-center justify-center border-2 border-blue-300 bg-white/80 rounded-xl shadow-md px-4 py-6 transition-all duration-200 group-hover:bg-blue-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-700 group-hover:shadow-lg">
@@ -92,6 +106,23 @@ export default function Home() {
               </label>
             ))}
           </div>
+          {interest === "Schedule Consultation" && (
+            <div className="mt-4">
+              <div className="font-semibold mb-2 text-blue-900">Select an appointment time:</div>
+              <div className="flex flex-col gap-2">
+                {appointmentOptions.map((time) => (
+                  <button
+                    type="button"
+                    key={time}
+                    className={`w-full px-4 py-3 rounded-lg border-2 text-left font-medium transition-all duration-150 ${appointmentTime === time ? "bg-blue-600 text-white border-blue-700" : "bg-white/80 border-blue-300 hover:bg-blue-100"}`}
+                    onClick={() => setAppointmentTime(time)}
+                  >
+                    {time}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded font-bold mt-4 hover:bg-blue-700" disabled={loading}>
           {loading ? "Submitting..." : "Submit"}
