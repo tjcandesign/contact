@@ -6,6 +6,7 @@
 [build.environment]
   NEXT_PUBLIC_BASE_PATH = "/"
   NODE_VERSION = "18"
+  GO_VERSION = "1.19"
 
 [[redirects]]
   from = "/api/*"
