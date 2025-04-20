@@ -41,7 +41,10 @@ export default function Home() {
 
   if (submitted) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-screen">
+      <main className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.svg)' }}>
+        <div className="w-full max-w-md flex flex-col items-center">
+          <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2 w-full" style={{ maxWidth: '100%' }} />
+        </div>
         <h2 className="text-2xl font-bold mb-2">Thank you!</h2>
         <p>We’ve received your info.</p>
       </main>
@@ -49,7 +52,7 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.svg)' }}>
       <div className="w-full max-w-md flex flex-col items-center">
         <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2 w-full" style={{ maxWidth: '100%' }} />
       </div>
