@@ -41,22 +41,24 @@ export default function Home() {
 
   if (submitted) {
     return (
-      <main className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.svg)' }}>
-        <div className="w-full max-w-md flex flex-col items-center">
+      <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0" style={{ backgroundImage: 'url(/background.svg)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.5 }} />
+        <div className="relative w-full max-w-md flex flex-col items-center z-10">
           <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2 w-full" style={{ maxWidth: '100%' }} />
         </div>
-        <h2 className="text-2xl font-bold mb-2">Thank you!</h2>
-        <p>We’ve received your info.</p>
+        <h2 className="relative text-2xl font-bold mb-2 z-10">Thank you!</h2>
+        <p className="relative z-10">We’ve received your info.</p>
       </main>
     );
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(/background.svg)' }}>
-      <div className="w-full max-w-md flex flex-col items-center">
+    <main className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden">
+      <div className="absolute inset-0 z-0" style={{ backgroundImage: 'url(/background.svg)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.5 }} />
+      <div className="relative w-full max-w-md flex flex-col items-center z-10">
         <img src="/logo.svg" alt="SYS Logo" className="mb-6 mt-2 w-full" style={{ maxWidth: '100%' }} />
       </div>
-      <form className="w-full max-w-md bg-white p-6 rounded shadow" onSubmit={handleSubmit}>
+      <form className="relative w-full max-w-md bg-white p-6 rounded shadow z-10" onSubmit={handleSubmit}>
         <label className="block mb-2 font-semibold">Name
           <input name="name" className="w-full border p-2 rounded mt-1" />
         </label>
